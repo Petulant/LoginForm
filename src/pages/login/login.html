@@ -1,0 +1,79 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="pink">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h2>Login</h2>
+<div class="ic">
+  <ion-icon ios="ios-person" md="md-person" ></ion-icon>
+</div><br><br><br>
+  <form [formGroup]="person"> 
+    <ion-item>
+        <ion-icon ios="ios-mail" md="md-mail"   item-start></ion-icon>
+        <ion-input type="text" placeholder="Email" formControlName="Email" ></ion-input>
+       </ion-item>
+       <div *ngIf="person.controls.Email.invalid && person.controls.Email.dirty">
+      </div> 
+      <div class="error" *ngIf="person.get('Email').hasError('required') && person.get('Email').touched">
+        Please input your email
+      </div>
+      <div class="error" *ngIf="person.get('Email').hasError('pattern') && person.get('Email').touched">
+        Email address invalid
+      </div>
+
+  
+        <ion-item>
+            
+          <ion-icon ios="ios-key" md="md-key" item-start></ion-icon>
+         <ion-input type="password"  placeholder="Password" formControlName="password" ></ion-input>
+           </ion-item>
+           <div *ngIf="person.controls.password.invalid && person.controls.password.dirty">
+          </div>
+          <div class="error" *ngIf="person.get('password').hasError('required') && person.get('password').touched">
+            Please input your password
+          </div>
+
+          <div class="error" *ngIf="person.get('password').hasError('minlength') && person.get('password').touched">
+            Minimum 6 characters
+          </div>
+
+          <div class="error" *ngIf="person.get('password').hasError('maxlength') && person.get('password').touched">
+            Maximum 12 characters
+          </div>
+     
+     
+</form>
+<div class="psw" (click)="ForgotPass()">
+    <button ion-button   clear >Forgot Password?</button>
+</div>
+
+<div class="btn">
+        <button ion-button  round color="pink" (click)=signUp(person)>LOGIN</button>   
+</div>
+   
+<div class="btnn"> 
+<ion-grid>
+<ion-row>
+<div class="sign"  (click)="Register(person)">
+<ion-col><button ion-button  clear>Dont have an Account?SignUp</button></ion-col></div>
+</ion-row>
+</ion-grid>
+<!-- 
+<button ion-button round block color="darkblue" (click)="signInGoogle()">Sign up With FaceBook</button> -->
+<button ion-button round block color="pink" (click)="signInGoogle()">Sign up With Google</button>
+
+</div>
+
+</ion-content>

@@ -1,0 +1,20 @@
+
+ion-content{
+    // background-color:   darkgray !important;
+    background-image: url('../../assets/imgs/pp.jpg') !important;
+    // background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+ion-title{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+.error{
+    color: brown;
+}
+ion-content{
+    position: fixed;
+}

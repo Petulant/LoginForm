@@ -1,0 +1,37 @@
+<!--
+  Generated template for the ResetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="pink">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h4>Reset Password</h4>
+    <form [formGroup]="person"> 
+        <ion-item>
+            <ion-icon ios="ios-mail" md="md-mail"   item-start></ion-icon>
+            <ion-input type="text" placeholder="Email" formControlName="Email" ></ion-input>
+           </ion-item>
+           <div *ngIf="person.controls.Email.invalid && person.controls.Email.dirty">
+          </div>
+          <div class="error" *ngIf="person.get('Email').hasError('required') && person.get('Email').touched">
+            Please input your email
+          </div>
+          <div class="error" *ngIf="person.get('Email').hasError('pattern') && person.get('Email').touched">
+            Email address invalid
+          </div> 
+          </form><br>
+          
+    <div class="btn">
+    <button ion-button   round color="pink" (click)=ResetPass(person)>Reset</button>
+  </div> 
+
+</ion-content>
